@@ -3,7 +3,7 @@ name: Deploy
 on:
   push:
     branches:
-      - main
+      - maria-luiza-rodrigues
 
 jobs:
   build:
