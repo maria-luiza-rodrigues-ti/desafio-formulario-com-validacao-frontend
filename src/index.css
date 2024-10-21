@@ -6,3 +6,9 @@ a.active {
   background-color: #4f46e5;
   color: #fff;
 }
+
+button:focus,
+input:focus,
+select:focus {
+  outline-color: #4f46e5;
+}
