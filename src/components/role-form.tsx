@@ -18,12 +18,12 @@ export function RoleForm() {
         >
           Cargo pretendido
         </label>
-        <div className="relative w-1/2 flex">
+        <div className="relative w-full lg:w-1/2 flex">
           <select
             name="role"
             id="role"
             title="Selecione o cargo pretendido"
-            className="appearance-none font-medium text-lg text-neutral-500 block mb-5 w-full shadow-input rounded-full p-5 bg-white cursor-pointer"
+            className="appearance-none font-medium text-lg text-neutral-500 block w-full shadow-input rounded-full p-5 bg-white cursor-pointer"
           >
             <option value="">Selecione</option>
             <option value="front-end-developer">Desenvolvedor Front-end</option>
@@ -51,11 +51,11 @@ export function RoleForm() {
           </div>
         </div>
 
-        <div className="col-span-2 flex justify-between items-center">
-          <button className="text-lg text-indigo-600 border border-indigo-600  hover:text-white hover:bg-indigo-600 transition-all duration-200 px-10 py-5 rounded-full cursor-pointer">
+        <div className="col-span-2 flex justify-between items-center mt-2">
+          <button className="text-lg text-indigo-600 border border-indigo-600  hover:text-white hover:bg-indigo-600 transition-all duration-200 px-6 py-2 lg:px-10 lg:py-5 rounded-full cursor-pointer">
             Anterior
           </button>
-          <button className="text-lg text-white bg-indigo-600 hover:bg-indigo-800 transition-all duration-200 border px-10 py-5 rounded-full cursor-pointer">
+          <button className="text-lg text-white bg-indigo-600 hover:bg-indigo-800 transition-all duration-200 border px-6 py-2 lg:px-10 lg:py-5 rounded-full cursor-pointer">
             Próximo
           </button>
         </div>

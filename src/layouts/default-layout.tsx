@@ -7,7 +7,7 @@ export function DefaultLayout() {
   const isSocialMedia = location.pathname === "/social-media";
 
   return (
-    <main className="bg-tone-200 max-w-[70%] mx-auto my-20">
+    <main className="bg-tone-200 w-full px-4 lg:px-0 lg:max-w-[70%] mx-auto my-20">
       <h1 className="text-3xl font-bold text-center text-slate-800 mb-3">
         Cadastro membros
       </h1>
