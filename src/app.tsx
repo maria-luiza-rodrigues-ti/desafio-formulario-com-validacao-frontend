@@ -1,36 +1,25 @@
+import { ContactForm } from "./components/contact-form";
+
 export function App() {
   return (
-    <form action="">
-      <label htmlFor="name">Nome completo</label>
-      <input type="text" />
-      <label htmlFor="email">E-mail</label>
-      <input type="email" />
-      <label htmlFor="phone">Telefone</label>
-      <input type="tel" />
-      <label htmlFor="role">Cargo pretendido</label>
-      <select name="role" id="role">
-        <option value="">Selecione</option>
-        <option value="front-end-developer">Desenvolvedor Front-end</option>
-        <option value="back-end-developer">Desenvolvedor Back-end</option>
-        <option value="full-stack-developer">Desenvolvedor Full-stack</option>
-        <option value="mobile-developer">Desenvolvedor Mobile</option>
-        <option value="software-developer">Desenvolvedor de Software</option>
-        <option value="software-engineer">Engenheiro de Software</option>
-        <option value="software-architect">Arquiteto de Software</option>
-        <option value="ux-ui-designer">UX/UI Designer</option>
-        <option value="system-analyst">Analista de Sistemas</option>
-        <option value="programmer-analyst">Analista Programador</option>
-        <option value="devops-engineer">DevOps Engineer</option>
-        <option value="data-engineer">Engenheiro de Dados</option>
-        <option value="qa-engineer">QA Engineer</option>
-        <option value="scrum-master">Scrum Master</option>
-        <option value="product-owner">Product Owner</option>
-      </select>
-      <label htmlFor="linkedin">Linkedin</label>
-      <input type="url" />
-      <label htmlFor="github">Github</label>
-      <input type="url" />
-      <button type="submit">Enviar</button>
-    </form>
+    <main className="bg-tone-200 max-w-[70%] mx-auto mt-20">
+      <h1 className="text-3xl font-bold text-center text-slate-800 mb-3">
+        Cadastro membros
+      </h1>
+      <p className="text-lg text-center text-neutral-500 mb-11 max-w-xl mx-auto">
+        Por favor, preencha o formulário abaixo para se cadastrar como membro do
+        projeto Frontend Fusion.
+      </p>
+
+      <section className="shadow-container rounded-[34px] p-9">
+        <div>
+          <span>1</span>
+          <span></span>
+          <span>2</span>
+          <span>3</span>
+        </div>
+        <ContactForm />
+      </section>
+    </main>
   );
 }
