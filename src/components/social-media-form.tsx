@@ -33,7 +33,7 @@ export function SocialMediaForm() {
         />
       </div>
 
-      <div className="col-span-2 flex justify-between items-center mt-2">
+      <div className="col-span-2 flex justify-between items-center mt-4">
         <button className="text-lg text-indigo-600 border border-indigo-600  hover:text-white hover:bg-indigo-600 transition-all duration-200 px-6 py-2 lg:px-10 lg:py-5 rounded-full cursor-pointer">
           Anterior
         </button>
