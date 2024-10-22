@@ -1,31 +1,12 @@
-import { zodResolver } from "@hookform/resolvers/zod";
 import { Mail, Phone, User } from "lucide-react";
-import { useContext } from "react";
-import { useForm } from "react-hook-form";
-import * as z from "zod";
-import { MemberRegistrationContext } from "../context/member-registration-context";
-
-const ContactFormSchema = z.object({
-  name: z.string(),
-  email: z.string().email("Email inválido"),
-  phone: z.string().min(10, "Telefone inválido"),
-});
-
-type ContactFormData = z.infer<typeof ContactFormSchema>;
+import { useFormContext } from "react-hook-form";
+import { ErrorMessage } from "@hookform/error-message";
 
 export function ContactForm() {
   const {
     register,
-    handleSubmit,
     formState: { errors },
-  } = useForm<ContactFormData>({
-    resolver: zodResolver(ContactFormSchema),
-  });
-  const { setMemberRegistrationData } = useContext(MemberRegistrationContext);
-
-  function handleSubmitContactDetailsData(data: ContactFormData) {
-    setMemberRegistrationData(data);
-  }
+  } = useFormContext();
 
   return (
     <div>
@@ -36,10 +17,7 @@ export function ContactForm() {
         </p>
       </header>
 
-      <form
-        className="space-y-7 lg:space-y-0 lg:grid lg:grid-cols-2 lg:grid-rows-3 lg:gap-7"
-        onSubmit={handleSubmit(handleSubmitContactDetailsData)}
-      >
+      <main className="space-y-7 lg:space-y-0 lg:grid lg:grid-cols-2 lg:grid-rows-2 lg:gap-7">
         <div>
           <label
             htmlFor="name"
@@ -75,7 +53,6 @@ export function ContactForm() {
               type="tel"
               title="Telefone"
               className="shadow-input rounded-[2.875rem] p-5 w-full"
-              required
               {...register("phone")}
             />
             <Phone
@@ -84,9 +61,13 @@ export function ContactForm() {
               size={30}
             />
           </div>
-          {errors.phone && (
-            <p className="text-red-500 text-sm mt-2">{errors.phone.message}</p>
-          )}
+          <ErrorMessage
+            errors={errors}
+            name="singleErrorInput"
+            render={({ message }) => (
+              <p className="text-red-500 text-sm mt-2">{message}</p>
+            )}
+          />
         </div>
 
         <div className="col-span-2">
@@ -110,20 +91,15 @@ export function ContactForm() {
               size={30}
             />
           </div>
-          {errors.email && (
-            <p className="text-red-500 text-sm mt-2">{errors.email.message}</p>
-          )}
+          <ErrorMessage
+            errors={errors}
+            name="singleErrorInput"
+            render={({ message }) => (
+              <p className="text-red-500 text-sm mt-2">{message}</p>
+            )}
+          />
         </div>
-
-        <div className="col-span-2 flex justify-end items-center mt-4">
-          <button
-            type="submit"
-            className="text-lg text-white bg-indigo-600 hover:bg-indigo-800 transition-all duration-200 border px-6 py-2 lg:px-10 lg:py-5 rounded-full cursor-pointer"
-          >
-            Próximo
-          </button>
-        </div>
-      </form>
+      </main>
     </div>
   );
 }
