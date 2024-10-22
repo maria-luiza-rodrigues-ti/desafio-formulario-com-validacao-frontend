@@ -1,16 +1,13 @@
-import { useState } from "react";
-
 interface ProgressionBarStepsProps {
+  currentStep: number;
   setCurrentStep: (step: number) => void;
 }
 
 export function ProgressionBarSteps({
+  currentStep,
   setCurrentStep,
 }: ProgressionBarStepsProps) {
-  const [stepIsActive, setStepIsActive] = useState(0);
-
   function handleChangeStep(step: number) {
-    setStepIsActive(step);
     setCurrentStep(step);
   }
 
@@ -28,7 +25,7 @@ export function ProgressionBarSteps({
           <span
             className={`h-2 bg-indigo-600 block rounded transition-all duration-500 ease-in-out`}
             style={{
-              width: stepIsActive === 0 ? "50%" : "100%",
+              width: currentStep === 0 ? "50%" : "100%",
             }}
           ></span>
         </div>
@@ -36,7 +33,7 @@ export function ProgressionBarSteps({
         <button
           onClick={() => handleChangeStep(1)}
           className={`px-4 py-2 rounded-full ${
-            stepIsActive > 0
+            currentStep > 0
               ? "bg-indigo-600 text-white"
               : "bg-neutral-200 text-neutral-600"
           }`}
@@ -47,15 +44,14 @@ export function ProgressionBarSteps({
           <span
             className={`h-2 bg-indigo-600 block rounded transition-all duration-500 ease-in-out w-0`}
             style={{
-              width:
-                stepIsActive > 1 ? "100%" : stepIsActive === 1 ? "50%" : "0",
+              width: currentStep > 1 ? "100%" : currentStep === 1 ? "50%" : "0",
             }}
           ></span>
         </div>
         <button
           onClick={() => handleChangeStep(2)}
           className={`px-4 py-2 rounded-full ${
-            stepIsActive === 2
+            currentStep === 2
               ? "bg-indigo-600 text-white"
               : "bg-neutral-200 text-neutral-600"
           }`}

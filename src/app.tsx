@@ -63,7 +63,10 @@ export function App() {
       </p>
 
       <section className="shadow-container rounded-[34px] p-9">
-        <ProgressionBarSteps setCurrentStep={goToStep} />
+        <ProgressionBarSteps
+          currentStep={currentStep}
+          setCurrentStep={goToStep}
+        />
         <FormProvider {...methods}>
           <form onSubmit={handleSubmit(handleNextStep)}>
             {currentStep === 0 && <ContactForm />}
