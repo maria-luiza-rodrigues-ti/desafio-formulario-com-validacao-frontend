@@ -39,6 +39,13 @@ export function ContactForm() {
               size={30}
             />
           </div>
+          <ErrorMessage
+            errors={errors}
+            name="name"
+            render={({ message }) => (
+              <p className="text-red-500 text-sm mt-2">{message}</p>
+            )}
+          />
         </div>
 
         <div>
@@ -63,7 +70,7 @@ export function ContactForm() {
           </div>
           <ErrorMessage
             errors={errors}
-            name="singleErrorInput"
+            name="phone"
             render={({ message }) => (
               <p className="text-red-500 text-sm mt-2">{message}</p>
             )}
@@ -93,7 +100,7 @@ export function ContactForm() {
           </div>
           <ErrorMessage
             errors={errors}
-            name="singleErrorInput"
+            name="email"
             render={({ message }) => (
               <p className="text-red-500 text-sm mt-2">{message}</p>
             )}

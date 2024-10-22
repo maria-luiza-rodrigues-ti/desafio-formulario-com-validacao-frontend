@@ -1,8 +1,12 @@
+import { ErrorMessage } from "@hookform/error-message";
 import { Github, Linkedin } from "lucide-react";
 import { useFormContext } from "react-hook-form";
 
 export function SocialMediaForm() {
-  const { register } = useFormContext();
+  const {
+    register,
+    formState: { errors },
+  } = useFormContext();
 
   return (
     <div className="grid grid-cols-2 grid-rows-[auto, auto, auto] gap-7">
@@ -56,6 +60,13 @@ export function SocialMediaForm() {
             size={30}
           />
         </div>
+        <ErrorMessage
+          errors={errors}
+          name="role"
+          render={({ message }) => (
+            <p className="text-red-500 text-sm mt-2">{message}</p>
+          )}
+        />
       </div>
     </div>
   );

@@ -1,8 +1,12 @@
+import { ErrorMessage } from "@hookform/error-message";
 import { ChevronDown } from "lucide-react";
 import { useFormContext } from "react-hook-form";
 
 export function RoleForm() {
-  const { register } = useFormContext();
+  const {
+    register,
+    formState: { errors },
+  } = useFormContext();
 
   return (
     <div>
@@ -51,11 +55,13 @@ export function RoleForm() {
           <div className="absolute right-5 top-1/2 -translate-y-1/2 pointer-events-none">
             <ChevronDown color="#737373" />
           </div>
-          {/* {errors.role && (
-            <span className="text-red-500 mt-2 text-sm">
-              {errors.role.message}
-            </span>
-          )} */}
+          <ErrorMessage
+            errors={errors}
+            name="role"
+            render={({ message }) => (
+              <p className="text-red-500 text-sm mt-2">{message}</p>
+            )}
+          />
         </div>
       </main>
     </div>

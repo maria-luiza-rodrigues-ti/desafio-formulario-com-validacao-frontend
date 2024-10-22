@@ -12,14 +12,12 @@ import { MemberRegistrationContext } from "./context/member-registration-context
 import { useStepForm } from "./hooks/useStepForm";
 
 const newMemberRegistrationSchema = z.object({
-  name: z.string(),
+  name: z.string().min(1, "Nome é obrigatório"),
   email: z.string().email("Email inválido"),
   phone: z.string().min(10, "Telefone inválido"),
-  role: z.string().refine((value) => value !== "", {
-    message: "Selecione o cargo pretendido",
-  }),
-  linkedin: z.string().url("Url inválida").optional(),
-  github: z.string().url("Url inválida").optional(),
+  role: z.string(),
+  linkedin: z.string().url("URL inválida").optional(),
+  github: z.string().url("URL inválida").optional(),
 });
 
 type NewMemberFormData = z.infer<typeof newMemberRegistrationSchema>;
