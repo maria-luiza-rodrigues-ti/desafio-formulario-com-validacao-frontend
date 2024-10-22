@@ -1,7 +1,9 @@
 import { zodResolver } from "@hookform/resolvers/zod";
 import { ChevronDown } from "lucide-react";
+import { useContext } from "react";
 import { useForm } from "react-hook-form";
 import * as z from "zod";
+import { MemberRegistrationContext } from "../context/member-registration-context";
 
 const RoleFormDataSchema = z.object({
   role: z.string().refine((value) => value !== "", {
@@ -19,9 +21,10 @@ export function RoleForm() {
   } = useForm<RoleFormData>({
     resolver: zodResolver(RoleFormDataSchema),
   });
+  const { setMemberRegistrationData } = useContext(MemberRegistrationContext);
 
-  function handleSubmitForm(data: RoleFormData) {
-    console.log(data);
+  function handleSubmitRoleData(data: RoleFormData) {
+    setMemberRegistrationData(data);
   }
 
   return (
@@ -36,7 +39,7 @@ export function RoleForm() {
       </header>
       <form
         className="flex flex-col gap-7"
-        onSubmit={handleSubmit(handleSubmitForm)}
+        onSubmit={handleSubmit(handleSubmitRoleData)}
       >
         <label
           htmlFor="role"

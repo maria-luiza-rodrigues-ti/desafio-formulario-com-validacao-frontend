@@ -1,6 +1,9 @@
+import { FormProvider, useForm } from "react-hook-form";
 import { NavLink, Outlet, useLocation } from "react-router-dom";
+import { NewRegistrationProvider } from "../context/member-registration-context";
 
 export function DefaultLayout() {
+  const methods = useForm();
   const location = useLocation();
   const isContactDetails = location.pathname === "/";
   const isRoleDetails = location.pathname === "/role-details";
@@ -57,7 +60,11 @@ export function DefaultLayout() {
             3
           </NavLink>
         </div>
-        <Outlet />
+        <FormProvider {...methods}>
+          <NewRegistrationProvider>
+            <Outlet />
+          </NewRegistrationProvider>
+        </FormProvider>
       </section>
     </main>
   );

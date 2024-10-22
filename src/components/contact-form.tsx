@@ -1,7 +1,9 @@
 import { zodResolver } from "@hookform/resolvers/zod";
 import { Mail, Phone, User } from "lucide-react";
+import { useContext } from "react";
 import { useForm } from "react-hook-form";
 import * as z from "zod";
+import { MemberRegistrationContext } from "../context/member-registration-context";
 
 const ContactFormSchema = z.object({
   name: z.string(),
@@ -19,9 +21,10 @@ export function ContactForm() {
   } = useForm<ContactFormData>({
     resolver: zodResolver(ContactFormSchema),
   });
+  const { setMemberRegistrationData } = useContext(MemberRegistrationContext);
 
-  function handleSubmitForm(data: ContactFormData) {
-    console.log(data);
+  function handleSubmitContactDetailsData(data: ContactFormData) {
+    setMemberRegistrationData(data);
   }
 
   return (
@@ -35,7 +38,7 @@ export function ContactForm() {
 
       <form
         className="space-y-7 lg:space-y-0 lg:grid lg:grid-cols-2 lg:grid-rows-3 lg:gap-7"
-        onSubmit={handleSubmit(handleSubmitForm)}
+        onSubmit={handleSubmit(handleSubmitContactDetailsData)}
       >
         <div>
           <label
@@ -112,10 +115,7 @@ export function ContactForm() {
           )}
         </div>
 
-        <div className="col-span-2 flex justify-between items-center mt-4">
-          <button className="text-lg text-indigo-600 border border-indigo-600  hover:text-white hover:bg-indigo-600 transition-all duration-200 px-6 py-2 lg:px-10 lg:py-5 rounded-full cursor-pointer">
-            Anterior
-          </button>
+        <div className="col-span-2 flex justify-end items-center mt-4">
           <button
             type="submit"
             className="text-lg text-white bg-indigo-600 hover:bg-indigo-800 transition-all duration-200 border px-6 py-2 lg:px-10 lg:py-5 rounded-full cursor-pointer"
