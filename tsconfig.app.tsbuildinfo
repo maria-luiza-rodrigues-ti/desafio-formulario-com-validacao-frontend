@@ -1,1 +1,1 @@
-{"root":["./src/app.tsx","./src/main.tsx","./src/vite-env.d.ts"],"version":"5.6.3"}
+{"root":["./src/app.tsx","./src/main.tsx","./src/vite-env.d.ts","./src/components/contact-form.tsx","./src/components/progression-bar-steps.tsx","./src/components/role-form.tsx","./src/components/social-media-form.tsx","./src/context/member-registration-context.tsx","./src/hooks/usestepform.ts"],"version":"5.6.3"}
