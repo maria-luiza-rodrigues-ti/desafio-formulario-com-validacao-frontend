@@ -35,6 +35,7 @@ Requisitos do desafio:
 - **Formulário:** O usuário pode cadastrar seus dados para ser membro do Projeto Frontend Fusion em um formulário multi-step .
 - **Validação de formulário:** O formulário foi validade utilizando a biblioteca React Hook Form e Zod para integração com TypeScript.
 - **Feedback Visual:** Sempre que o usuário chegar ao último passo do formulário, uma notificação (Toast) aparecerá no canto inferior direito da tela, confirmando se o cadastro foi bem sucedido ou não. Esse Toast foi feito utilizando a biblioteca Sonner.
+- **Gerenciamento de dados:** Para gerenciamento de estado dos dados entre os componentes dentro da aplicação, utilizei a Context API para deixar todas as informações já desacopladas caso um dia a aplicação escale.
 - **Persistência de Dados:** Todos os dados do usuário foram armazenados no localStorage do navegador. Isso garante que, ao recarregar a página ou fechar o navegador, os dados permanecem intactos e sincronizados com as ações anteriores do usuário.
 
 ### Tecnologias utilizadas
